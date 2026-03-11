@@ -8,7 +8,4 @@ urlpatterns = [
     path('api/auth/', include('accounts.urls')),
     path('api/', include('products.urls')),
     path('api/', include('orders.urls')),
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

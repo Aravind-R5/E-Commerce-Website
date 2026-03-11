@@ -30,6 +30,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 class ProductListSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source='category.name', read_only=True)
+    category_slug = serializers.CharField(source='category.slug', read_only=True)
     avg_rating = serializers.FloatField(read_only=True)
     review_count = serializers.IntegerField(read_only=True)
     final_price = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
@@ -39,7 +40,7 @@ class ProductListSerializer(serializers.ModelSerializer):
         model = Product
         fields = ('id', 'name', 'slug', 'price', 'discount_price', 'final_price',
                   'discount_percent', 'brand', 'stock', 'category', 'category_name',
-                  'image', 'featured', 'avg_rating', 'review_count', 'created_at')
+                  'category_slug', 'image', 'featured', 'avg_rating', 'review_count', 'created_at')
 
 
 class ProductDetailSerializer(serializers.ModelSerializer):

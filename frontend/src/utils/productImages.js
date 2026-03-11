@@ -60,26 +60,27 @@ const CATEGORY_FALLBACK = {
  * Priority: product.image (if valid) > slug mapping > category fallback > generic placeholder
  */
 export function getProductImage(product) {
-    // 1. If product has a valid image URL from backend
     if (product.image) {
         const img = product.image;
-        if (img.startsWith('http') && !img.includes('placehold')) {
+        if (img.startsWith('http')) {
             return img;
         }
+        
+        // Resolve correctly to your Render URL
+        const baseUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:8000';
+        const cleanImgPath = img.startsWith('/') ? img : `/media/${img}`;
+        return `${baseUrl}${cleanImgPath}`;
     }
 
-    // 2. Check slug-based mapping
     if (product.slug && PRODUCT_IMAGES[product.slug]) {
         return PRODUCT_IMAGES[product.slug];
     }
 
-    // 3. Category fallback
     const catSlug = product.category_slug || product.category?.slug || '';
     if (CATEGORY_FALLBACK[catSlug]) {
         return CATEGORY_FALLBACK[catSlug];
     }
 
-    // 4. Generic fallback
     return `https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=500&q=80`;
 }
 
