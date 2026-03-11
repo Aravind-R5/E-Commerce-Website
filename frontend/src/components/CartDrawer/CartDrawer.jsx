@@ -1,6 +1,7 @@
 import { FaMinus, FaPlus, FaTimes, FaShoppingBag, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
+import { getProductImage } from '../../utils/productImages';
 import './CartDrawer.css';
 
 export default function CartDrawer() {
@@ -26,9 +27,7 @@ export default function CartDrawer() {
                         </div>
                     ) : (
                         cart.items?.map((item) => {
-                            const imageUrl = item.product_detail?.image?.startsWith('http')
-                                ? item.product_detail.image
-                                : `http://localhost:8000${item.product_detail?.image || ''}`;
+                            const imageUrl = getProductImage(item.product_detail || {});
                             return (
                                 <div key={item.id} className="cart-item">
                                     <div className="cart-item-image">
