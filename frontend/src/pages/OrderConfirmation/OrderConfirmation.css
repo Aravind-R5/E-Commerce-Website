@@ -1,0 +1,83 @@
+.confirmation-page {
+    padding: 50px 0;
+}
+
+.confirm-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    text-align: center;
+}
+
+.confirm-icon {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.confirm-card h1 {
+    font-family: var(--font-heading);
+    color: var(--text-heading);
+    margin-bottom: 8px;
+}
+
+.confirm-msg {
+    color: var(--text-body);
+    margin-bottom: 30px;
+}
+
+.order-details {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-body);
+}
+
+.detail-row strong {
+    color: var(--text-heading);
+}
+
+.detail-row.total strong {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.items-list {
+    margin-top: 20px;
+}
+
+.items-list h4 {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--text-heading);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.items-list h4 svg {
+    color: var(--primary);
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: var(--text-body);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}

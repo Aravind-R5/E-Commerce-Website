@@ -1,0 +1,30 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+*.sqlite3-journal
+media/
+
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Virtual Environments
+venv/
+env/
+.venv/
+.env/
+
+# Editor / System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

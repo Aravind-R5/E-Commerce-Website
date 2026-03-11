@@ -1,0 +1,242 @@
+.products-page {
+    padding: 30px 0 60px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.page-header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-heading);
+}
+
+.header-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.sort-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.sort-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--primary);
+    font-size: 0.9rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sort-select {
+    min-width: 200px;
+    padding-left: 38px !important;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-color);
+    font-weight: 600;
+    color: var(--text-heading);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.sort-select:focus {
+    border-color: var(--primary);
+}
+
+.filter-toggle {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.products-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+}
+
+/* ── Filter Sidebar ── */
+.filter-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filter-header-mobile {
+    display: none;
+}
+
+.filter-card {
+    padding: 20px;
+}
+
+.filter-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--text-heading);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.search-input-wrap {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.search-input-wrap .form-control {
+    padding-left: 36px;
+}
+
+.filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filter-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-body);
+    transition: var(--transition-fast);
+}
+
+.filter-list li:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.filter-list li.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.filter-list .count {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* ── Products Main ── */
+.products-main .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-results h3 {
+    color: var(--text-heading);
+    margin-bottom: 8px;
+}
+
+.no-results p {
+    color: var(--text-body);
+}
+
+.pagination-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+@media (max-width: 992px) {
+    .products-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-toggle {
+        display: flex;
+    }
+
+    .filter-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100vh;
+        background: var(--bg-white);
+        z-index: 2000;
+        padding: 20px;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .filter-header-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .filter-header-mobile h3 {
+        font-family: var(--font-heading);
+        color: var(--text-heading);
+    }
+
+    .filter-header-mobile button {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: var(--text-heading);
+    }
+}
+
+@media (max-width: 768px) {
+    .products-main .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .products-main .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
