@@ -67,7 +67,9 @@ export function getProductImage(product) {
         }
         
         // Resolve correctly to your Render URL
-        const baseUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:8000';
+        let baseUrl = import.meta.env.VITE_API_URL?.replace(/\/api\/?$/, '') || 'http://localhost:8000';
+        if (baseUrl.endsWith('/')) baseUrl = baseUrl.slice(0, -1);
+        
         const cleanImgPath = img.startsWith('/') ? img : `/media/${img}`;
         return `${baseUrl}${cleanImgPath}`;
     }
