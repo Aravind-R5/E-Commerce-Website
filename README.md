@@ -2,6 +2,8 @@
 
 A modern full-stack **E-Commerce Platform** built with Django and React, specializing in premium gaming hardware.
 
+> ⚠️ **Note:** The backend is hosted on Render's free tier. On the first visit, it may take **30–60 seconds** to load data due to a cold start. Thank you for your patience!
+
 ## ⚡ Tech Stack
 
 | Layer | Technology |
